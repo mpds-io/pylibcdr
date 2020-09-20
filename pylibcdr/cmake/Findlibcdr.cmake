@@ -8,12 +8,13 @@
 # Include dir
 find_path(LIBCDR_INCLUDE_DIR
   NAMES libcdr/libcdr.h
-  PATHS /usr/include/*
+  PATHS /usr/include/* /usr/local/include/*
 )
 
 # Finally the library itself
 find_library(LIBCDR_LIBRARY
   NAMES libcdr-0.1.so
+  PATHS /usr/lib64 /usr/local/lib64
 )
 
 include(FindPackageHandleStandardArgs)

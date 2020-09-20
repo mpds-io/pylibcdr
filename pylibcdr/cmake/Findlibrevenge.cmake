@@ -8,12 +8,13 @@
 # Include dir
 find_path(LIBREVENGE_INCLUDE_DIR
   NAMES librevenge/librevenge.h
-  PATHS /usr/include/*
+  PATHS /usr/include/* /usr/local/include/*
 )
 
 # Finally the library itself
 find_library(LIBREVENGE_LIBRARY
   NAMES librevenge-0.0.so
+  PATHS /usr/lib64 /usr/local/lib64
 )
 
 # Finally the library itself
