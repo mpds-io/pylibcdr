@@ -2,7 +2,7 @@
 
 from libcpp.string cimport string
 
-cdef extern from "core/cdr_iface.h":
+cdef extern from "core/parser.h":
     string svg(char* file)
 
 def parse(f_name):

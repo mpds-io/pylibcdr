@@ -1,4 +1,12 @@
-from distutils.core import setup, Extension
+import os
+from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext as build_extension
+
+import six
+if six.PY2:
+    import pathlib2 as pathlib
+else:
+    import pathlib
 
 # check for Cython version
 try:
@@ -10,25 +18,19 @@ except (ImportError, AssertionError):
     use_cython = False
     ext = ".cpp"
 
-import os
-import pathlib
-
-from setuptools import setup, Extension
-from setuptools.command.build_ext import build_ext as build_extension
-
-class CMakeExtension(Extension):
+class CMakeExtension(Extension, object):
 
     def __init__(self, name):
         # don't invoke the original build_ext for this special extension
-        super().__init__(name, sources=[])
+        super(CMakeExtension, self).__init__(name, sources=[])
 
 
-class build_ext(build_extension):
+class build_ext(build_extension, object):
 
     def run(self):
         for ext in self.extensions:
             self.build_cmake(ext)
-        super().run()
+        super(build_ext, self).run()
 
     def build_cmake(self, ext):
         root = str(pathlib.Path().absolute())
@@ -62,8 +64,8 @@ class build_ext(build_extension):
 # cythonize pyx file if right version of Cython is found
 if use_cython:
     from Cython.Build import cythonize
-    pyx_ext = Extension("pylibcdr",
-              sources=["pylibcdr/pylibcdr" + ext],
+    pyx_ext = Extension("libcdr_interface",
+              sources=["pylibcdr/libcdr_interface" + ext],
               include_dirs=["pylibcdr/core"],
               language="c++",
               )
@@ -77,9 +79,9 @@ setup(
     author_email="andrey.n.sobolev@gmail.com",
     url="",
     download_url="",
-    packages=["pylibcdr",],
+    packages=["pylibcdr"],
     package_dir={"pylibcdr": "pylibcdr"},
-    ext_modules=[CMakeExtension("pylibcdr/pylibcdr"),],
+    ext_modules=[CMakeExtension("pylibcdr/libcdr_interface"),],
     cmdclass={
         'build_ext': build_ext,
     }

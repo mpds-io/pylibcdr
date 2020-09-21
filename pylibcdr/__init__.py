@@ -1,7 +1,7 @@
 # This file is a part of pylibcdr project (c) Andrey Sobolev, 2020
 # Distributed under MIT license
 
-from .pylibcdr import parse
+from .libcdr_interface import parse
 
 class CDRParser:
 
