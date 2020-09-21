@@ -14,7 +14,7 @@ cd libcdr
 make && make install
 ```
 
-Then: `pip install https://bitbucket.org/tilde-mi/pylibcdr`
+Then: `pip install git+https://bitbucket.org/tilde-mi/pylibcdr`
 
 ## Usage
 
