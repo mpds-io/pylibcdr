@@ -15,6 +15,7 @@ dist/
 
 # Pip
 /build
+*.egg-info/
 
 # VS code
 .vscode/
