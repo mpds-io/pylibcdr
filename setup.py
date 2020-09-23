@@ -1,22 +1,16 @@
 import os
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext as build_extension
+from Cython.Build import cythonize
 
 import six
 if six.PY2:
-    import pathlib2 as pathlib
+    try:
+        import pathlib2 as pathlib
+    except ImportError:
+        raise ImportError("Please install pathlib2 to continue")
 else:
     import pathlib
-
-# check for Cython version
-try:
-    from Cython import __version__ as cython_version
-    assert cython_version > "0.15"
-    use_cython = True
-    ext = ".pyx"
-except (ImportError, AssertionError):
-    use_cython = False
-    ext = ".cpp"
 
 class CMakeExtension(Extension, object):
 
@@ -34,7 +28,7 @@ class build_ext(build_extension, object):
 
     def build_cmake(self, ext):
         root = str(pathlib.Path().absolute())
-
+        print("Root directory: {}".format(root))
         # these dirs will be created in build_py, so if you don't have
         # any python sources to bundle, the dirs will be missing
         build_temp = pathlib.Path(self.build_temp)
@@ -63,14 +57,12 @@ class build_ext(build_extension, object):
         os.chdir(root)
 
 # cythonize pyx file if right version of Cython is found
-if use_cython:
-    from Cython.Build import cythonize
-    pyx_ext = Extension("libcdr_interface",
-              sources=["pylibcdr/libcdr_interface" + ext],
-              include_dirs=["pylibcdr/core"],
-              language="c++",
-              )
-    cythonize(pyx_ext, compiler_directives={'language_level' : "3"})
+pyx_ext = Extension("libcdr_interface",
+            sources=["pylibcdr/libcdr_interface" + ext],
+            include_dirs=["pylibcdr/core"],
+            language="c++",
+            )
+cythonize(pyx_ext, compiler_directives={'language_level' : "3"})
 
 setup(
     name="pylibcdr",
