@@ -1,6 +1,7 @@
 import os
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext as build_extension
+from platform import python_version
 from Cython.Build import cythonize
 
 import six
@@ -40,7 +41,8 @@ class build_ext(build_extension, object):
         config = 'Debug' if self.debug else 'Release'
         cmake_args = [
             '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + str(extdir.parent.absolute()),
-            '-DCMAKE_BUILD_TYPE=' + config
+            '-DCMAKE_BUILD_TYPE=' + config,
+            '-DPYTHON_VERSION=' + python_version()
         ]
 
         # example of build args
