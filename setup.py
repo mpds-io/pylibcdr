@@ -62,6 +62,7 @@ pyx_ext = Extension("libcdr_interface",
             include_dirs=["pylibcdr/core"],
             language="c++",
             )
+directives = {'language_level' : "2" if six.PY2 else "3"}
 cythonize(pyx_ext, compiler_directives={'language_level' : "3"})
 
 setup(

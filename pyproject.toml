@@ -1,4 +1,4 @@
 [build-system]
 # Requirements for the build system to execute.
-requires = ["setuptools", "wheel", "cython", "six"]
+requires = ["setuptools", "wheel", "cython", "six", "pathlib2"]
 build-backend = "setuptools.build_meta"
