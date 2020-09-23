@@ -58,7 +58,7 @@ class build_ext(build_extension, object):
 
 # cythonize pyx file if right version of Cython is found
 pyx_ext = Extension("libcdr_interface",
-            sources=["pylibcdr/libcdr_interface" + ext],
+            sources=["pylibcdr/libcdr_interface.pyx"],
             include_dirs=["pylibcdr/core"],
             language="c++",
             )
