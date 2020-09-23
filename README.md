@@ -11,7 +11,7 @@ git clone https://git.libreoffice.org/libcdr
 cd libcdr
 ./autogen.sh
 ./configure
-make && make install
+make && sudo make install
 ```
 
 Then: `pip install git+https://bitbucket.org/tilde-mi/pylibcdr`
@@ -20,6 +20,7 @@ Then: `pip install git+https://bitbucket.org/tilde-mi/pylibcdr`
 
 ```
 import sys
-from pylibcdr import parse
-print(parse(sys.argv[1]))
+from pylibcdr import CDRParser
+parser = CDRParser(sys.argv[1])
+print(parser.dict)
 ```
