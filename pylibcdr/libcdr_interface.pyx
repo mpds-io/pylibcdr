@@ -8,4 +8,10 @@ cdef extern from "core/parser.h":
 def parse(f_name):
     f_name = f_name.encode()
     cdef char* name = f_name
-    return string(svg(name))
+    res = string(svg(name)).decode()
+    if res.startswith("ERROR"):
+        raise CDRException(res)
+    return res
+
+class CDRException(Exception):
+    pass

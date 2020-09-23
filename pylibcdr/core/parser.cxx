@@ -17,25 +17,21 @@ std::string svg(char* file) {
   {
     if (!libcdr::CMXDocument::isSupported(&input))
     {
-      fprintf(stderr, "ERROR: Unsupported file format (unsupported version) or file is encrypted!\n");
-      return "";
+      return "ERROR: Unsupported file format (unsupported version) or file is encrypted!";
     }
     else if (!libcdr::CMXDocument::parse(&input, &painter))
     {
-      fprintf(stderr, "ERROR: Parsing of document failed!\n");
-      return "";
+      return "ERROR: Parsing of document failed!";
     }
   }
   else if (!libcdr::CDRDocument::parse(&input, &painter))
   {
-    fprintf(stderr, "ERROR: Parsing of document failed!\n");
-    return "";
+    return "ERROR: Parsing of document failed!";
   }
 
   if (output.empty())
   {
-    std::cerr << "ERROR: No SVG document generated!" << std::endl;
-    return "";
+    return "ERROR: No SVG document generated!";
   }
 
   std::string res = "";
