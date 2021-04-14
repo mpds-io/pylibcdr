@@ -3,7 +3,7 @@ Parser for the LPF phase diagram CDR drawings
 
 ## Installation
 
-First, the patched `libcdr` must be compiled. On Debian, after Andrey's patch has been accepted:
+First, the `libcdr` newer than `v0.1.8` must be compiled. E.g. on Debian:
 
 ```
 apt-get install automake cmake libtool libboost-all-dev libicu-dev liblcms2-dev librevenge-dev libcppunit-dev zlib1g-dev
