@@ -1,9 +1,16 @@
-Parser for the LPF phase diagram CDR drawings 
+Python bindings for libcdr
 ==========
+
+## Intro
+
+Simple Python bindings for the [libcdr](https://wiki.documentfoundation.org/DLP/Libraries/libcdr) written by [Dr. Andrey Sobolev](mailto:as@tilde.pro).
+
 
 ## Installation
 
-First, the `libcdr` newer than `v0.1.8` must be compiled. E.g. on Debian:
+First, the `libcdr` newer than `v0.1.8` must be compiled.
+
+E.g. on Debian:
 
 ```
 apt-get install automake cmake libtool libboost-all-dev libicu-dev liblcms2-dev librevenge-dev libcppunit-dev zlib1g-dev
@@ -15,6 +22,7 @@ make && sudo make install
 ```
 
 Then: `pip install git+https://bitbucket.org/tilde-mi/pylibcdr`
+
 
 ## Usage
 
