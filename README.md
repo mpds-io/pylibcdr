@@ -32,3 +32,8 @@ from pylibcdr import CDRParser
 parser = CDRParser(sys.argv[1])
 print(parser.dict)
 ```
+
+
+## License
+
+Inherited from the `libcdr` (MPL 2.0).
