@@ -21,7 +21,7 @@ cd libcdr
 make && sudo make install
 ```
 
-Then: `pip install git+https://bitbucket.org/tilde-mi/pylibcdr`
+Then: `pip install git+https://github.com/mpds-io/pylibcdr`
 
 
 ## Usage
