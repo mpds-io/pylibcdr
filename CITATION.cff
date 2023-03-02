@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: pylibcdr
 type: software
-license: MPL 2.0
+license: MPL-2.0
 authors:
   - given-names: Andrey
     family-names: Sobolev
