@@ -1,6 +1,8 @@
 Python bindings for libcdr
 ==========
 
+[![DOI](https://zenodo.org/badge/468935999.svg)](https://doi.org/10.5281/zenodo.7692820)
+
 ## Intro
 
 Simple Python bindings for the [libcdr](https://wiki.documentfoundation.org/DLP/Libraries/libcdr) written by [Dr. Andrey Sobolev](mailto:as@tilde.pro).
