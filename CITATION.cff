@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: pylibcdr
+type: software
+license: MPL 2.0
+authors:
+  - given-names: Andrey
+    family-names: Sobolev
+    orcid: 'https://orcid.org/0000-0001-5086-6601'
+  - given-names: Evgeny
+    family-names: Blokhin
+    orcid: 'https://orcid.org/0000-0002-5333-3947'
+doi: 10.5281/zenodo.7692820
+url: 'https://github.com/mpds-io/pylibcdr'
+keywords:
+  - vector-graphics
+  - coreldraw
+  - openoffice
+  - open-office
+  - cdr
+  - openoffice-extension
+  - libcdr
