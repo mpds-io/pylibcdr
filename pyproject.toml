@@ -1,4 +1,20 @@
 [build-system]
-# Requirements for the build system to execute.
-requires = ["setuptools", "wheel", "cython", "six", "pathlib2"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.9", "cython>=3"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pylibcdr"
+version = "0.1.1"
+description = "Python bindings for libcdr (CorelDRAW/CMX parser)."
+authors = [{name = "Andrey Sobolev", email = "andrey.n.sobolev@gmail.com"}]
+license = {text = "MPL-2.0"}
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/mpds-io/pylibcdr"
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+cmake.source-dir = "pylibcdr"
+wheel.packages = ["pylibcdr"]
